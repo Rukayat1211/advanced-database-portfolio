@@ -1,0 +1,49 @@
+{
+  "$jsonSchema": {
+    "bsonType": "object",
+    "required": ["product_id", "product_name", "price", "category", "attributes", "stock_quantity"],
+    "properties": {
+      "product_id": {
+        "bsonType": "int",
+        "description": "Unique product identifier"
+      },
+      "product_name": {
+        "bsonType": "string",
+        "description": "Name of the product"
+      },
+      "category": {
+        "bsonType": "object",
+        "required": ["category_id", "category_name"],
+        "properties": {
+          "category_id": { "bsonType": "int" },
+          "category_name": { "bsonType": "string" }
+        }
+      },
+      "price": {
+        "bsonType": ["double", "decimal"],
+        "description": "Unit price of product"
+      },
+      "stock_quantity": {
+        "bsonType": "int"
+      },
+      "attributes": {
+        "bsonType": "object",
+        "description": "Flexible JSON key-value pairs for technical specs"
+      },
+      "reviews": {
+        "bsonType": "array",
+        "items": {
+          "bsonType": "object",
+          "required": ["review_id", "customer_name", "rating", "comment", "created_at"],
+          "properties": {
+            "review_id": { "bsonType": "int" },
+            "customer_name": { "bsonType": "string" },
+            "rating": { "bsonType": "int" },
+            "comment": { "bsonType": "string" },
+            "created_at": { "bsonType": "string" }
+          }
+        }
+      }
+    }
+  }
+}
